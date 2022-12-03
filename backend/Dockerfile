@@ -10,6 +10,8 @@ COPY package*.json .
 #install dependencies
 RUN npm install
 
+COPY . .
+
 #Expose port 4040
 EXPOSE 2020
 

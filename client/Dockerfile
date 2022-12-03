@@ -10,6 +10,8 @@ COPY package*.json .
 #install dependencies
 RUN npm install
 
+COPY . .
+
 #Expose port 9090
 EXPOSE 9090
 
