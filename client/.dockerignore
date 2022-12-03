@@ -1,0 +1,7 @@
+#Files not required in our build
+Dockerfile
+.dockerignore
+.gitignore
+
+#Folders that will be rebuilt
+node_modules
