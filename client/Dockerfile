@@ -2,7 +2,7 @@
 FROM node:14.18.2-alpine
 
 #Define client working directory
-WORKDIR /the/workdir/path
+WORKDIR /client
 
 #copy package.json to the working directory
 COPY package*.json .
