@@ -1,5 +1,5 @@
 #Define the base image for the backedn
-FROM node:14.18.2-alpine
+FROM node
 
 #Define backend working directory
 WORKDIR /backend
