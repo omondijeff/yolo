@@ -12,8 +12,8 @@ RUN npm install
 
 COPY . .
 
-#Expose port 4040
-EXPOSE 2020
+#Expose port 2020
+EXPOSE 3001
 
 #backend entry point
 CMD ["npm","start"]

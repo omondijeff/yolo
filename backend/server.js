@@ -7,7 +7,7 @@ const upload = multer();
 const productRoute = require("./routes/api/productRoute");
 
 // Connecting to the Database
-let mongodb_url = "mongodb://mongo:27017/";
+let mongodb_url = "mongodb://mongo:27018/";
 let dbName = "yolomy";
 
 // define a url to connect to the database
@@ -44,7 +44,7 @@ app.use(cors());
 app.use("/api/products", productRoute);
 
 // Define the PORT
-const PORT = process.env.PORT || 9090;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);

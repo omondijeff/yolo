@@ -12,8 +12,8 @@ RUN npm install
 
 COPY . .
 
-#Expose port 9090
-EXPOSE 9090
+#Expose port 3090
+EXPOSE 3000
 
 #client entry point
 CMD ["npm","start"]
