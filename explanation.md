@@ -14,10 +14,16 @@ I used node image(s) because both the backend and client are node projects.
 
 ### Backend Dockerfile Directives
 
-`FROM node:alpine
-WORKDIR /backend
-COPY package*.json .
-RUN npm install
-COPY . .
-EXPOSE 3001
-CMD ["npm","start"]`
+`FROM node:alpine`
+
+`WORKDIR /backend`
+
+`COPY package*.json .`
+
+`RUN npm install`
+
+`COPY . .`
+
+`EXPOSE 3001`
+
+`CMD ["npm","start"]`
