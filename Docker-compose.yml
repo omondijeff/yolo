@@ -38,7 +38,8 @@ services:
 
 
 networks:
-  yolo_network: {}
+  yolo_network: 
+    driver: bridge
 
 volumes:
   data:
