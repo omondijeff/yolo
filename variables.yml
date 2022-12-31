@@ -1,0 +1,15 @@
+---
+PORT: 3000
+MONGO_URI: "mongodb://localhost:27017"
+MONGO_DB_NAME: "yolo_database"
+CLIENT_IMAGE: "client_image"
+BACKEND_IMAGE: "backend_image"
+MONGO_IMAGE: "mongo_image"
+GITHUB_REPO: "https://github.com/omondijeff/yolo"
+CLIENT_DEPS:
+  - react
+  - react-dom
+BACKEND_DEPS:
+  - express
+  - mongodb
+  - body-parser
