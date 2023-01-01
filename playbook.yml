@@ -1,0 +1,34 @@
+---
+- name: Provision and set up a virtual Machine
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - variables.yml
+
+- name: Setup the application
+  hosts: app
+  gather_facts: true
+  vars_files:
+    - variables.yml
+  roles:
+    - { role: client, tags: ["client"] }
+    - { role: backend, tags: ["backend"] }
+    - { role: mongo, tags: ["mongo"] }
+
+- name: Start Application
+  hosts: app
+  tasks:
+    - name: Start React App
+      command: "npm start"
+      args:
+        chdir: "/client"
+        creates: "/tmp/client.pid"
+      environment:
+        PORT: "{{ PORT }}"
+      async: 7200
+      poll: 10
+      become: yes
+      become_user: node
+      tags:
+        - client
