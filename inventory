@@ -1,0 +1,6 @@
+[webservers]
+    server1 ansible_host=192.168.64.17
+    server2 ansible_host=192.168.64.18
+
+[dbservers]
+    server4 ansible_host=192.168.64.19

@@ -1,0 +1,16 @@
+---
+- name: Build backend image
+  docker_image:
+    path: /roles/backend
+    name: my_backend
+    state: build
+
+- name: Run backend container
+  docker_container:
+    name: my_backend
+    image: my_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - /roles/backend:/app
+    state: started

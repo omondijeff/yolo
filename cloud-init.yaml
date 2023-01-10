@@ -1,0 +1,6 @@
+users:
+  - default
+  - name: vmadmin
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHQJT9dOMhp/+LnPovvQO3kOZIho/BkC82v481/U5Oz39t805GIXnZgdYV/kaT84D03DB5Q7Bwj+k3vXgufe5uf4dIBYf3C4fO2gW5r0yb5S/shknbrP5N031TPCBSakcugzqGLvNNTUr4AWO3fxh0cXOr3Yd0bm8tj+ctGDJAfTMvulBr7Fz9GxZTxKkjXpA9PTeC8GVahUozmsdInckEmH25uEvU+Ry7klBhbAgImtFOWPVvXNBMGQcSbmC6uOkPI7nOyJ/qMy8yPfGPfQ/jNbjxe+c23byH57votlsvymmskXBlMJ3SBNSfT2kAqbpmaU1Z14eIJOkBnatn/M38BQ4xnmiHJr5PLNBK78vVT6oZXiaI44l/baH032CWFA6Rg/hvnEvVIN4sqstY4N6d9oOsXO98uzKnBjqlDTnp49HdHm4eK1Q2RsxR+SsO5+O5pVSQ4W/FaOYwlomE/OOZtrBLgGDEgnjTe1BtVmSbv51vCEs718oihsZv9HsmBks= vmadmin

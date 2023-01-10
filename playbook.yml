@@ -1,34 +1,38 @@
 ---
-- name: Provision and set up a virtual Machine
-  hosts: localhost
-  connection: local
-  gather_facts: no
-  vars_files:
-    - variables.yml
-
-- name: Setup the application
-  hosts: app
-  gather_facts: true
-  vars_files:
-    - variables.yml
-  roles:
-    - { role: client, tags: ["client"] }
-    - { role: backend, tags: ["backend"] }
-    - { role: mongo, tags: ["mongo"] }
-
-- name: Start Application
-  hosts: app
+- name: Deploy Yolo Application and DB
+  hosts: all
   tasks:
-    - name: Start React App
-      command: "npm start"
-      args:
-        chdir: "/client"
-        creates: "/tmp/client.pid"
-      environment:
-        PORT: "{{ PORT }}"
-      async: 7200
-      poll: 10
-      become: yes
-      become_user: node
-      tags:
-        - client
+    # - name: Clone Repository from Github
+    #   git:
+    #     repo: https://github.com/omondijeff/yolo
+    #     dest: /repo-clone
+    - name: Build Docker Image for Client
+      import_tasks: roles/client/tasks/client.yml
+      #validate_certs: false
+
+    - name: Install Docker
+      package:
+        name: docker-ce
+        state: present
+
+    - name: Build Docker Image for Backend
+      import_tasks: roles/backend/tasks/backend.yml
+      #validate_certs: false
+    # roles:
+    #   - client
+    # vars:
+    #   group: webservers
+
+- name: Run MongoDB container
+  hosts: dbservers
+  tasks:
+    - name: Create MongoDB Volume
+      docker_volume:
+        name: mongo_data
+        driver: local
+      #validate_certs: false
+    - name: Run MongoDB container
+      import_tasks:
+        roles/mongo/tasks/main.yml
+        # roles:
+        #   - mongo

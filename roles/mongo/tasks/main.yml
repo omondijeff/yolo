@@ -1,0 +1,15 @@
+---
+- name: Run MongoDB container
+  docker_container:
+    name: my_mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    state: started
+
+- name: Create a volume
+  docker_volume:
+    name: mongo_data
+    state: present
