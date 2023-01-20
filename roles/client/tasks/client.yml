@@ -3,7 +3,8 @@
   docker_image:
     path: /roles/client
     name: yolo_client
-    state: build
+    state: present
+    
 
 - name: Run client container
   docker_container:
@@ -13,4 +14,4 @@
       - "3000:3000"
     volumes:
       - /roles/client:/app
-    state: started
+    state: present

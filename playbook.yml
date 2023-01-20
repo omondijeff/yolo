@@ -1,7 +1,10 @@
 ---
 - name: Deploy Yolo Application and DB
   hosts: all
+  become: true
   tasks:
+    - name: Install Docker
+      import_tasks: roles/docker/tasks/install_docker.yml
     # - name: Clone Repository from Github
     #   git:
     #     repo: https://github.com/omondijeff/yolo
@@ -9,11 +12,6 @@
     - name: Build Docker Image for Client
       import_tasks: roles/client/tasks/client.yml
       #validate_certs: false
-
-    - name: Install Docker
-      package:
-        name: docker-ce
-        state: present
 
     - name: Build Docker Image for Backend
       import_tasks: roles/backend/tasks/backend.yml
